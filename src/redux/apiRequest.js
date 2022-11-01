@@ -1,4 +1,6 @@
 import axios from "axios";
+import { getOrdersFailed,   getOrdersStart, getOrdersSuccess } from "./orderSlice";
+import { getOrdersIdFailed, getOrdersIdStart, getOrdersIdSuccess,  } from "./orderIDSlice";
 import { deleteProductFailed, deleteProductsSuccess, deleteProductStart, getProductsFailed, getProductsStart, getProductsSuccess,updateProductStart,updateProductsSuccess,updateProductFailed,
    addProductFailed,addProductsSuccess,addProductStart, getTrashProductsStart, getTrashProductsSuccess, getTrashProductsFailed
     ,restoreProductFailed,restoreProductStart,restoreProductsSuccess
@@ -80,3 +82,34 @@ export const restoreProduct =async(dispatch,id) =>{
         return false 
         }
 }
+
+
+
+////// ----------------------  Orders --------------------
+
+export const getAllOrders = async(dispatch) =>{
+    dispatch(getOrdersStart());
+    try{
+        const res = await axios.get("/v1/order")
+        // console.log(res.data)
+        dispatch(getOrdersSuccess(res.data));
+    }
+    catch(err){
+    dispatch(getOrdersFailed());    
+    }
+};
+
+export const getAllOrdersId = async(dispatch,id) =>{
+    dispatch(getOrdersIdStart());
+    try{
+        const res = await axios.get(`/v1/order/${id}`)
+        // console.log(res.data)
+        dispatch(getOrdersIdSuccess(res.data));
+    }
+    catch(err){
+    dispatch(getOrdersIdFailed());    
+    }
+};
+
+
+

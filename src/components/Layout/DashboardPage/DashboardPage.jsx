@@ -33,11 +33,11 @@ const DashboardPage = ({children}) => {
           getItem(<Link to="/admin/trashProduct" className="navbar-register"><DeleteOutlined /></Link>),
           getItem('Alex', '5'),
         ]),
-        getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
+        getItem('Order', 'sub2', <TeamOutlined />, [getItem('Orders','',<Link to="/admin/order" className="navbar-register"></Link>), getItem('Team 2', '8')]),
         getItem('Files', '9', <FileOutlined />),
       ];
-      const items1 = getItem('Option 1', '1', <PieChartOutlined />)
     
+      
     const [collapsed, setCollapsed] = useState(false);
     
     

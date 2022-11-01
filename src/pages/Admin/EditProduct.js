@@ -159,8 +159,8 @@ const EditProduct= () => {
           //  }}
           onChange={handleChange}
           // onValuesChange={formik.values.category}
-          // value={formik.values.category}
-          placeholder={formik.values.category}
+          defaultValue={formik.values.category}
+          // placeholder={formik.values.category}
           >
             <Select.Option  value="Gỗ">Gỗ</Select.Option>
             <Select.Option  value="Nhựa">Nhựa</Select.Option>
@@ -176,7 +176,7 @@ const EditProduct= () => {
           <InputNumber 
            id="price"
            name="price"
-          //  value={formik.values.price}
+          defaultValue={formik.values.price}
           onChange={onChangeNumber}
           />
           {formik.errors.price && (
@@ -188,7 +188,7 @@ const EditProduct= () => {
         <Form.Item label="originalPrice">
           <InputNumber id="originalPrice"
            name="originalPrice"
-          //  value={formik.values.originalPrice}
+           defaultValue={formik.values.originalPrice}
            onChange={onChangeNumber1}
           />
           {formik.errors.originalPrice && (
@@ -201,7 +201,7 @@ const EditProduct= () => {
           <InputNumber 
            id="sold"
            name="sold"
-          //  value={formik.values.sold}
+           defaultValue={formik.values.sold}
           onChange={onChangeNumber2}
           />
           {formik.errors.sold && (

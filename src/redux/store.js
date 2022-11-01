@@ -2,6 +2,8 @@ import {combineReducers, configureStore} from "@reduxjs/toolkit";
 // import authReducer from "./authSlice";
 // import userReducer  from "./userSlice"
 import productReducer from "./productSlice"
+import orderReducer from "./orderSlice"
+import orderIDReducer from "./orderIDSlice"
 import {
     persistStore,
     persistReducer,
@@ -25,6 +27,8 @@ const rootReducer = combineReducers({
     // users: userReducer,
     // auth: authReducer,
     products: productReducer,
+    orders:orderReducer,
+    orderID:orderIDReducer
    
 });
 
