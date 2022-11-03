@@ -1,7 +1,7 @@
 
 // Layout
 import DashboardPage from "../components/Layout/DashboardPage/DashboardPage";
-
+import Default from "../components/Layout/Default/defaultLayout";
 
 
 //Pages
@@ -12,7 +12,9 @@ import addProduct from "../pages/Admin/AddProduct";
 import EditProduct from "../pages/Admin/EditProduct";
 import TrashProduct from "../pages/Admin/TrashProduct";
 import OrderProduct from "../pages/Admin/Order";
-import OrderID from "../pages/Admin/OrderID";
+import User from "../pages/Admin/Users";
+import SignupForm from "../pages/Login/SingupForm";
+
 //Public Routes
 
 const publicRoutes = [
@@ -22,7 +24,9 @@ const publicRoutes = [
     {path: '/admin/editProduct',component:EditProduct,layout:DashboardPage}, 
     {path: '/admin/trashProduct',component:TrashProduct,layout:DashboardPage}, 
     {path: '/admin/order',component:OrderProduct,layout:DashboardPage},   
-    {path: '/admin/orderID',component:OrderID,layout:DashboardPage},  
+    {path: '/admin/user',component:User,layout:DashboardPage}, 
+    {path: '/login',component:SignupForm,layout:Default}, 
+  
 //    
     
 ];

@@ -5,8 +5,8 @@
     min-height: 100vh;
 }
 
-/* .ant-layout-header span svg{
+.ant-layout-header span svg{
     width: 25px !important;
     height: 25px !important;
     margin: 10px !important;
-} */
+}

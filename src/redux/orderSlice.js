@@ -8,6 +8,8 @@ const orderSlice = createSlice({
       isFetching: false,
       error: false,
       totalPages: null,
+      status:null,
+      cancel: null,
       
         
     },
@@ -28,7 +30,9 @@ const orderSlice = createSlice({
       state.orders.isFetching = false;
       state.orders.error = true;
     },
-
+    
+  
+  
 
    
    
@@ -39,6 +43,8 @@ const orderSlice = createSlice({
 
 export const {
  getOrdersFailed,getOrdersStart,getOrdersSuccess,
+ 
+
  
 } = orderSlice.actions;
 
