@@ -9,6 +9,7 @@ const productSlice = createSlice({
       error: false,
       totalPages: null,
       trashProducts:null,
+      totalPages:null,
     },
     
     msg: "",
@@ -20,7 +21,8 @@ const productSlice = createSlice({
     },
     getProductsSuccess: (state, action) => {
       state.products.isFetching = false;
-      state.products.allProducts = action.payload;
+      state.products.allProducts = action.payload.products;
+      state.products.totalPages = action.payload.totalPages;
       // state.products.totalPages =action.payload.totalPages;
     },
     getProductsFailed: (state) => {

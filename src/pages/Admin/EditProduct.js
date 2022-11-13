@@ -18,6 +18,8 @@ const { TextArea } = Input;
 
 
 const EditProduct= () => {
+  // const { state } = this.props.location
+  // console.log(this.props.location.state);
   const productEdit = useContext(Context)
   // console.log(productEdit)
   const onFormLayoutChange = ({ disabled }) => {
@@ -132,7 +134,7 @@ const EditProduct= () => {
             id="name"
             name="name"
             value={formik.values.name}
-            onChange={formik.handleChange}
+            onChange={formik.handleChange} style={{marginTop:-15}}
             placeholder="Enter your name"  />
             {formik.errors.name && (
                 <p className="errorMsg">
@@ -146,13 +148,13 @@ const EditProduct= () => {
           name="description"
           value={formik.values.description}
           onChange={formik.handleChange}
-          placeholder="Enter your description" 
+          placeholder="Enter your description"  
           />
         </Form.Item>
 
         <Form.Item label="Category">
           <Select 
-           labelInValue
+           labelInValue  
           //  defaultValue={{
           //    value: 'Gỗ',
              
@@ -162,8 +164,10 @@ const EditProduct= () => {
           defaultValue={formik.values.category}
           // placeholder={formik.values.category}
           >
-            <Select.Option  value="Gỗ">Gỗ</Select.Option>
-            <Select.Option  value="Nhựa">Nhựa</Select.Option>
+            <Select.Option  value="Phòng bếp">Phòng bếp</Select.Option>
+            <Select.Option  value="Phòng khách">Phòng khách</Select.Option>
+            <Select.Option  value="Phòng ngủ">Phòng ngủ</Select.Option>
+            <Select.Option  value="Phòng tắm">Phòng tắm</Select.Option>
           </Select>
           {formik.errors.category && (
                 <p className="errorMsg">
@@ -175,7 +179,7 @@ const EditProduct= () => {
         <Form.Item label="Price">
           <InputNumber 
            id="price"
-           name="price"
+           name="price" 
           defaultValue={formik.values.price}
           onChange={onChangeNumber}
           />
@@ -187,7 +191,7 @@ const EditProduct= () => {
         </Form.Item>
         <Form.Item label="originalPrice">
           <InputNumber id="originalPrice"
-           name="originalPrice"
+           name="originalPrice"  
            defaultValue={formik.values.originalPrice}
            onChange={onChangeNumber1}
           />
@@ -199,7 +203,7 @@ const EditProduct= () => {
         </Form.Item>
         <Form.Item label="sold">
           <InputNumber 
-           id="sold"
+           id="sold" 
            name="sold"
            defaultValue={formik.values.sold}
           onChange={onChangeNumber2}
@@ -232,7 +236,7 @@ const EditProduct= () => {
           </Upload>
         </Form.Item>
         <Form.Item label="Button">
-          <Button htmlType="submit" >Button</Button>
+          <Button htmlType="submit"  >Button</Button>
         </Form.Item>
       </Form>
     </>

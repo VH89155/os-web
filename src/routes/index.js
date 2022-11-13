@@ -4,7 +4,7 @@ import DashboardPage from "../components/Layout/DashboardPage/DashboardPage";
 import Default from "../components/Layout/Default/defaultLayout";
 
 
-//Pages
+//Pages - Admin
 
 import HomeAdmin from "../pages/Admin/Home";
 import ProductAdmin from "../pages/Admin/Product";
@@ -13,8 +13,18 @@ import EditProduct from "../pages/Admin/EditProduct";
 import TrashProduct from "../pages/Admin/TrashProduct";
 import OrderProduct from "../pages/Admin/Order";
 import User from "../pages/Admin/Users";
-import SignupForm from "../pages/Login/SingupForm";
 
+///Pages- Web /////
+import Login from "../pages/Login/loginPage";
+import Home from "../pages/Web/home";
+import Product from "../pages/Web/product"; 
+import DetailProduct from "../pages/Web/detailproduct";
+import News from "../pages/Web/news";
+import Partner from "../pages/Web/partner";
+import Introuce from "../pages/Web/introduce";
+import Contract from "../redux/contract";
+import Profile from "../pages/Web/profile";
+import CartPay from "../pages/Web/cartPay";
 //Public Routes
 
 const publicRoutes = [
@@ -25,8 +35,16 @@ const publicRoutes = [
     {path: '/admin/trashProduct',component:TrashProduct,layout:DashboardPage}, 
     {path: '/admin/order',component:OrderProduct,layout:DashboardPage},   
     {path: '/admin/user',component:User,layout:DashboardPage}, 
-    {path: '/login',component:SignupForm,layout:Default}, 
-  
+    {path: '/',component:Home,layout:Default}, 
+    {path: '/products',component:Product,layout:Default}, 
+     {path: '/login',component:Login,layout:Default}, 
+     {path: '/product/:productId',component:DetailProduct,layout:Default},
+     {path: '/news',component:News,layout:Default},
+     {path: '/partners',component:Partner,layout:Default}, 
+     {path: '/introduce',component:Introuce,layout:Default},       
+     {path: '/contract',component:Contract,layout:Default},  
+     {path: '/profile',component:Profile,layout:Default},     
+     {path: '/cartPay',component:CartPay,layout:Default},     
 //    
     
 ];

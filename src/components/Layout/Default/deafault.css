@@ -1,0 +1,72 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.header__cart-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 0 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.header__cart-icon {
+  color: rgba(0,0,0,.9);
+  font-size: 1.2rem;
+  /* margin-top: 6px; */
+}
+.header__cart-notice {
+  position: absolute;
+  padding: 1px 7px;
+  font-size: 0.8rem;
+  background-color: #fff;
+  color:rgba(0,0,0,.9);
+  line-height: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.9);
+  top: -10px;
+  right: -4px;
+}
+
+
+/* header {
+  font-size: 1.5rem;
+  color:rgb(119, 119, 252);
+  font-weight: 700;
+  text-align: center;
+}
+body {
+  font-family: "Sora", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(239, 240, 255);
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  padding: 1rem 2rem 1rem 2rem;
+  font-size: 1.15rem;
+}
+.App {
+  background-color: white;
+  padding: 2rem;
+  min-width: 500px;
+  border-radius: 14px;
+  box-shadow: 0px 0px 14px 3px rgb(222, 224, 250);
+} */
+
+@font-face {
+  font-family: "Gotham-Ultra";
+  src: url('./fonts/Gotham-Ultra.otf');
+}
+@font-face {
+  font-family: "Gotham-Medium";
+  src: url('./fonts/Gotham-Medium.otf');
+}
+@font-face {
+  font-family: "Gotham-Thin";
+  src: url('./fonts/Gotham-Thin.otf');
+}

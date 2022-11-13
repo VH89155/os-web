@@ -6,7 +6,11 @@ import {
     PieChartOutlined,
     TeamOutlined,
     UserOutlined,PlusCircleOutlined,
-    DeleteOutlined
+    DeleteOutlined,
+    DiffOutlined,
+    LineChartOutlined,
+    TableOutlined,
+    ContactsOutlined,ContainerOutlined
   } from '@ant-design/icons';
   import { Avatar, Breadcrumb, Layout, Menu, Row } from 'antd';
   import React, { useEffect, useState } from 'react';
@@ -18,9 +22,9 @@ import { useSelector } from "react-redux";
 
 const DashboardPage = ({children}) => {
     const navigate = useNavigate()
-    const isAdmin = useSelector((state)=>state.auth?.login.currentUser?.admin)
+    const auth = useSelector((state)=>state.auth?.login?.currentUser)
     useEffect(()=>{
-      if(!isAdmin){
+      if(!auth?.admin || auth ==null){
         
         navigate("/login")
       }
@@ -35,14 +39,15 @@ const DashboardPage = ({children}) => {
         };
       }
       const items = [
-        getItem('Admin', '1',<Link to="/admin" className="navbar-register"> <PieChartOutlined /></Link>),
-        getItem('Product', '2',<Link to="/admin/product" className="navbar-register"> <DesktopOutlined /> </Link>),
-        getItem('Product', 'sub1', <UserOutlined />, [
-          getItem(<Link to="/admin/addProduct" className="navbar-register"><PlusCircleOutlined /></Link>),
+        getItem('Chart', '1',<Link to="/admin" className="navbar-register"> <LineChartOutlined /></Link>),
+       
+        getItem('Product', 'sub1', <DesktopOutlined /> , [
+          getItem(<Link to="/admin/product" className="navbar-register"><ContainerOutlined /> </Link>),
+          getItem(<Link to="/admin/addProduct" className="navbar-register"><DiffOutlined /> </Link>),
           getItem(<Link to="/admin/trashProduct" className="navbar-register"><DeleteOutlined /></Link>),
-          getItem('Alex', '5'),
+          
         ]),
-        getItem('Order', 'sub2', <TeamOutlined />, [getItem('Orders','',<Link to="/admin/order" className="navbar-register"></Link>), getItem('Team 2', '8')]),
+        getItem('Orders','',<Link to="/admin/order" className="navbar-register"><TableOutlined /></Link>),
         getItem('Users', '9', <Link to="/admin/user" className="navbar-register"><UserOutlined /> </Link>),
       ];
     
@@ -77,8 +82,8 @@ const DashboardPage = ({children}) => {
              
               <Col md={6}>
               <div style={{marginTop:"-10px",textAlign:'right'}}>
-                <Avatar  size='default'  icon={<UserOutlined/>} ></Avatar>
-                <span style={{color:'#fff'}}> Nguyen Hiep</span>
+                <Avatar   icon={<UserOutlined/>} ></Avatar>
+                <span style={{color:'#fff'}}> {auth?.username}</span>
               </div>
               </Col >
               <Col md={2}></Col>

@@ -74,19 +74,7 @@ const OrderID = (props) => {
         />
       ),
     },
-    // {
-    //   title: 'Action',
-    //   key: 'action',
-    //   render: (_, record) => (
-    //     <Space size="middle">
-    //     <Button type="primary"><Link to={{
-    //       pathname: "/admin/editProduct",
-    //       state :  record._id,
-    //     }} className="navbar-register" onClick={()=>handleEdit(record)}>Edit</Link></Button>
-    //     <Button type="primary" danger onClick={()=>handleDelete(record._id)}>Delete</Button>
-    //     </Space>
-    //   ),
-    // },
+   
   ];
 
   return (

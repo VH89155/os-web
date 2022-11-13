@@ -56,7 +56,7 @@ const SignupForm = () => {
 
   return (
     <section>
-      <form className="infoform" onSubmit={formik.handleSubmit}>
+      <form className="infoform" >
         <label> Your name </label>
         <input
           type="text"

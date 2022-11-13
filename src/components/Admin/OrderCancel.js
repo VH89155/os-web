@@ -43,8 +43,8 @@ useEffect(()=>{
 // }
 const [searchText, setSearchText] = useState('');
 const [searchedColumn, setSearchedColumn] = useState('');
-const HandleShow =(id)=>{
-    getAllOrdersId(dispatch,id)
+const HandleShow =async(id)=>{
+    await getAllOrdersId(dispatch,id)
     setOpen(true)
     // useNavigate('/admin/orderID')
 }

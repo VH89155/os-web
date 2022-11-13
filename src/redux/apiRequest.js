@@ -9,7 +9,8 @@ import { deleteProductFailed, deleteProductsSuccess, deleteProductStart,
     ,restoreProductFailed,restoreProductStart,restoreProductsSuccess
 } from "./productSlice";
 import { getUsersFailed, getUsersStart, getUsersSuccess } from "./userSlice";
-import { loginFailed, loginStart, loginSusscess } from "./authSlice";
+import { loginFailed, loginStart, loginSusscess,logOutStart,logOutSusscess,logOutFailed, getProfileUpdate } from "./authSlice";
+import { addCartFailed, addCartStart, addCartSusscess, cartLogout, deleteCartFailed, deleteCartStart, deleteCartSusscess, getCartFailed, getCartStart, getCartSusscess } from "./cartSlice";
 
 ///// auth ------------
 
@@ -18,18 +19,55 @@ export const authLogin = async (dispatch, user,navigate) => {
     try{
         const res = await axios.post("/v1/auth/login",user);
         dispatch(loginSusscess(res.data))
-        navigate("/admin")
+        navigate("/")
+    }catch(err){
+        dispatch(loginFailed())
+    }
+
+}
+export const getProfile = async (dispatch, user) => {
+    dispatch(loginStart())
+    try{
+        const res = await axios.post("/v1/auth/login",user);
+        dispatch(getProfileUpdate(res.data))
+       
     }catch(err){
         dispatch(loginFailed())
     }
 
 }
 
+export const logOut = async(dispatch,id,navigate,token)=>{
+    dispatch(logOutStart());
+    try{
+        await axios.post("v1/auth/logout",id,{
+            headers:{
+                token:  `Bearer ${token}`
+            }
+        });
+        dispatch(logOutSusscess());
+        dispatch(cartLogout());
+        navigate("/login")
+    }
+    catch(err){
+        dispatch(logOutFailed());
+    }
+}
 
-export const getAllProducts = async(dispatch) =>{
+////  Products ---------------------
+
+
+export const getAllProducts = async(dispatch, page ) =>{
     dispatch(getProductsStart());
     try{
-        const res = await axios.get("/v1/product")
+        let res;
+        if(page === 0){
+         res = await axios.get(`/v1/product`)
+        }
+        else
+            {
+         res = await axios.get(`/v1/product?page=${page}`)}
+        
         // console.log(res.data)
         dispatch(getProductsSuccess(res.data));
     }
@@ -100,7 +138,18 @@ export const restoreProduct =async(dispatch,id) =>{
         return false 
         }
 }
-
+export const getProductID=async(id) =>{
+    
+    try{
+        const res =await axios.get(`/v1/product/${id}`)
+        // dispatch(deleteCartSusscess(res.data));
+        return res.data;
+    }
+    catch(err){
+           
+        return {}
+     }
+}
 
 
 ////// ----------------------  Orders --------------------
@@ -167,3 +216,43 @@ export const getAllUsers = async(dispatch) =>{
     dispatch(getUsersFailed());    
     }
 };
+
+
+////// Cart
+
+export const getCart = async(dispatch,id) =>{
+    dispatch(getCartStart());
+    try{
+        const res = await axios.get(`/v1/cart/${id}`)
+        // console.log(res.data)
+        dispatch(getCartSusscess(res.data));
+    }
+    catch(err){
+    dispatch(getCartFailed());    
+    }
+};
+
+export const addCart=async(dispatch,value) =>{
+    dispatch(addCartStart());
+    try{
+        const res =await axios.post(`/v1/cart/add`,value)
+        dispatch(addCartSusscess(res.data));
+        return true;
+    }
+    catch(err){
+        dispatch(addCartFailed());   
+        return false 
+        }
+}
+export const deleteCartItem=async(dispatch,id) =>{
+    dispatch(deleteCartStart());
+    try{
+        const res =await axios.delete(`/v1/cart/${id}`)
+        dispatch(deleteCartSusscess(res.data));
+        return true;
+    }
+    catch(err){
+        dispatch(deleteCartFailed());   
+        return false 
+        }
+}

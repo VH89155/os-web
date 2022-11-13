@@ -30,12 +30,14 @@ const handleDelete =(id) =>{
 }
 
 useEffect(()=>{
-  getAllProducts(dispatch)
+  getAllProducts(dispatch, -1)
   
 },[deleted])
 
-const handleEdit =(id)=>{
-  setProductEdit(id)
+const handleEdit = async(id)=>{
+   setProductEdit(id)
+  // this.props.history.push( {pathname: "/admin/editProduct",
+  // state: { employee:"Steven" }});
   
 }
 const [searchText, setSearchText] = useState('');
@@ -159,12 +161,20 @@ const columns = [
     width: '10%',
     filters: [
       {
-        text: 'Gỗ',
-        value: 'Gỗ',
+        text: 'Phòng bếp',
+        value: 'Phòng bếp',
       },
       {
-        text: 'Nhựa',
-        value: 'Nhựa',
+        text: 'Phòng ngủ',
+        value: 'Phòng ngủ',
+      },
+      {
+        text: 'Phòng khách',
+        value: 'Phòng khách',
+      },
+      {
+        text: 'Phòng tắm',
+        value: 'Phòng tắm',
       },
      
     ],
@@ -217,7 +227,9 @@ const columns = [
     key: 'action',
     render: (_, record) => (
       <Space size="middle">
-      <Button type="primary"><Link to={{
+        
+      <Button type="primary">
+      <Link to={{
         pathname: "/admin/editProduct",
         state :  record._id,
       }} className="navbar-register" onClick={()=>handleEdit(record)}>Edit</Link></Button>

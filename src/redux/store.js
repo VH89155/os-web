@@ -6,6 +6,7 @@ import orderReducer from "./orderSlice"
 import orderIDReducer from "./orderIDSlice"
 import userSlice from "./userSlice";
 import authSlice from "./authSlice";
+import cartSlice from "./cartSlice";
 import {
     persistStore,
     persistReducer,
@@ -17,6 +18,7 @@ import {
     REGISTER,
 }from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+
 
 
 const persistConfig ={
@@ -33,6 +35,7 @@ const rootReducer = combineReducers({
     orderID:orderIDReducer,
     users: userSlice,
     auth: authSlice,
+    cart:cartSlice
    
 });
 

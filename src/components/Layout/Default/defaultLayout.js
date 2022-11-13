@@ -1,14 +1,22 @@
 import './deafault.css'
-
+import Nav from './nav/nav.js'
+import Footer from './footer/footer.js'
+// // import './fonts'
+// import '../../../../public/css/fonts.css'
 
 const Default = ({children}) => {
     return (  
         <>
-        <div className="App">
+        {/* <div className="App">
         <header>
         {children}
         </header>
-        </div>
+
+        </div> */}
+        <Nav />
+        {children}
+        <Footer/>
+
         </>
     );
 }

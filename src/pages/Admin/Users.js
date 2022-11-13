@@ -156,8 +156,8 @@ const columns = [
     key: 'admin',
     width: '20%',
     render: (_, record) =>{
-        if(record.admin) return  <Button type="primary">Amin</Button>
-        else return  <Button type="primary">User</Button>
+        if(record.admin) return  <Button type="primary" style={{backgroundColor:"red",minWidth:"100px"}}>Amin</Button>
+        else return  <Button type="primary" style={{minWidth:"100px"}}>User</Button>
     }
     
   },
