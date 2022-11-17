@@ -16,6 +16,7 @@ import User from "../pages/Admin/Users";
 
 ///Pages- Web /////
 import Login from "../pages/Login/loginPage";
+import ForgotPage from "../pages/Login/ForgotPage"
 import Home from "../pages/Web/home";
 import Product from "../pages/Web/product"; 
 import DetailProduct from "../pages/Web/detailproduct";
@@ -45,6 +46,7 @@ const publicRoutes = [
      {path: '/contract',component:Contract,layout:Default},  
      {path: '/profile',component:Profile,layout:Default},     
      {path: '/cartPay',component:CartPay,layout:Default},     
+     {path: '/forgot',component:ForgotPage,layout:Default}, 
 //    
     
 ];

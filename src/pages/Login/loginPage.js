@@ -84,6 +84,9 @@ const LoginPage = () => {
                 <h6 className="status" onClick={statusRegister}>
                   {isRegister ? "Quay trở lại" : "Bạn chưa có tài khoản ?"}
                 </h6>
+                <h6 className="status" onClick={()=>navigate("/forgot")} >
+                  Bạn quên mật khẩu ? 
+                </h6>
               </div>
             </div>
             <div class="col-lg-3 col-md-2"></div>

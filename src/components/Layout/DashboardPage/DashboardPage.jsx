@@ -84,10 +84,12 @@ const DashboardPage = ({children}) => {
               <div style={{marginTop:"-10px",textAlign:'right'}}>
                 <Avatar   icon={<UserOutlined/>} ></Avatar>
                 <span style={{color:'#fff'}}> {auth?.username}</span>
+                <span className="back" style={{marginLeft:'2rem', color:'#fff'}}><Link  to="/" > <i className="fa-solid fa-house-user"  style={{marginLeft:'2rem', color:'#fff'}}></i></Link></span>
               </div>
               </Col >
               <Col md={2}></Col>
             </Row>
+            <p>123456</p>
             </Header>
           <Content
             style={{
@@ -100,7 +102,6 @@ const DashboardPage = ({children}) => {
               
             }}
           >
-            
             <div             
               style={{
                 padding: 24,

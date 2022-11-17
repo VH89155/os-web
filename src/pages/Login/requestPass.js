@@ -20,19 +20,17 @@ const Register = (props) => {
     initialValues: {
       username: "",
       password: "",
-      email:"",
+      token:"",
       confirmedPassword:"",
     },
     validationSchema: Yup.object({
       username: Yup.string()
         .required("Required")
         .min(4, "Must be 4 characters or more"),
-      email: Yup.string()
+        token: Yup.string()
         .required("Required")
-        .matches(
-          /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-          "Please enter a valid email address"
-        ),
+        .min(12, "Must be 4 characters or more"),
+      
       password: Yup.string()
         .required("Required")
         .matches(
@@ -47,16 +45,15 @@ const Register = (props) => {
       // window.alert("Form submitted");
       console.log(values);
 
-      await axios.post("/v1/auth/register",values).then(res=>res.data).then(res=>{
-        if(res.status === true){
-            message.success('Resgister success');
-            
-            statusRegister()
-        }
-        else {
-            message.error('Resgister error');
-        }
-      });
+      const res = await axios.post("/v1/forgotPass/password-new",values)
+      console.log(res.data)
+      if(res.data?.success){
+        message.success("ForgotPass success")
+        navigate("/login")
+      }
+      else{
+        message.error("ForgotPass failed")
+      }
 
       //  message.error('Resgister error');
     },
@@ -113,20 +110,20 @@ const Register = (props) => {
         )}
       </div>
       <div class="form-group">
-        <label class="form-control-label">EMAIL </label>
+        <label class="form-control-label">TOKEN </label>
         <input
           type="text"
-          id="email"
-          name="email"
+          id="token"
+          name="token"
           value={
-           formik.values.email
+           formik.values.token
           }
           onChange={formik.handleChange}
-          placeholder="Enter your email"
+          placeholder="Enter your token"
           class="form-control"
         />
-        {formik.errors.email && (
-          <p className="errorMsg"> {formik.errors.email} </p>
+        {formik.errors.token && (
+          <p className="errorMsg"> {formik.errors.token} </p>
         )}
       </div>
 

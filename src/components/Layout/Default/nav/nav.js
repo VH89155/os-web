@@ -71,14 +71,14 @@ useEffect(()=>{
             </div>
           </div>
           <div className="navh">
-            <div className="navh3">
-              <Link className="navbar-brand" to="/contract">
+            <div className="navh3 ">
+              <Link className="navbar-brand " to="/contract">
                 Liên Hệ
               </Link>
               <div className="gachduoi"></div>
             </div>
           </div>
-          <div className="navh">
+          <div className="navh ml-3">
             <div className="navh3">
               {
                 auth?(
@@ -102,36 +102,59 @@ useEffect(()=>{
               }
               
               {openCart? (<Cart openCart={openCart} setOpenCart={setOpenCart}></Cart>) :<></> } 
-              {/* <div className="gachduoi"></div> */}
             </div>
           </div>
+          
+          
           {auth? (
-            <>
-              <div className="navh">
-              <div className="navh3">
-              <div className="user-nav">
-                <p className=" user-name"  >Hi, <span> {auth.username}  </span> </p>
-                {/* <Link className="navbar-brand" style={{marginLeft:"100px"}} to="/login" onClick={handleLogout}>Logout</Link> */}
-                <ul>
-                  <li><Link  to="/login" onClick={handleLogout}>Logout</Link></li>
-                  {auth?.admin ? <> <li><Link  to="/admin" >Admin</Link></li></> : 
-                  <>  <li><Link  to="/profile" >Profile</Link></li></>}
-                 
-                </ul>
-
-               </div>
-               
-                {/* <div className="gachduoi" style={{marginLeft:"100px", width:"100px"}}> </div> */}
-              </div>
-            </div>
-            </>
+                      <div className="user-nav ">
+                      <div className="user-nav-hv">
+                      <div className="users-img-container2 nav-hv ml-10 ">
+                            <img className="user-img2 " src="http://www.gravatar.com/avatar/fabac475498dabc37e3c268c4d7334c5?s=325&r=g&d=mm" alt="oke">
+                            </img>
+                            <div className="name_user2">
+                                <h6 >{auth.username}</h6>
+                            </div>
+                            <div className="item-user">
+                              <div className="pointer-top"></div>
+                              <ul>
+                                {/* <li>              {
+                    auth?(
+                      <>
+                      <div className="header__cart-wrap" onClick={()=>setOpenCart(!openCart)}>
+                    <i class="fa-solid fa-cart-shopping  header__cart-icon"></i>
+                    <span class="header__cart-notice">{ItemCart?.length || 0}</span>
+                     </div>
+                     </>
+                     )
+                     
+                      :(
+                        <>
+                        <div className="header__cart-wrap" onClick={()=>navigate("/login")}>
+                         <i class="fa-solid fa-cart-shopping  header__cart-icon"></i>
+                         <span class="header__cart-notice">0</span>
+                        </div>
+                        </>
+                      )
+                    
+                  }  cart</li> */}
+    
+                                <li> <Link  to="/profile" > <i class="fa-solid fa-user"></i>  Profile</Link></li>
+                                <li><i class="fa-solid fa-right-from-bracket"></i> <Link  to="/login" onClick={handleLogout}> Logout </Link></li>
+                                {auth?.admin ? <> <li><Link  to="/admin" > <i class="fa-solid fa-user-pen"></i> Admin</Link></li></> : 
+                                <>  </>}
+                              </ul>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
           )  : (
             <>
-             <div className="navh">
+             <div className="navh user-nav">
               <div className="navh3">
               
-                <Link className="navbar-brand" style={{marginLeft:"100px"}} to="/login">Đăng nhập</Link>
-                <div className="gachduoi" style={{marginLeft:"100px", width:"100px"}}> </div>
+                <Link className="navbar-brand text-danger login_s"   to="/login"><button type="button" class="btn btn-danger">Đăng Nhập</button> </Link>
+                <div className="gachduoi" style={{opacity:0}}> </div>
               
               </div>
             </div>
@@ -139,7 +162,7 @@ useEffect(()=>{
           )
          } 
          
-           
+
          
         </nav>
         {/* <div className="navh2">
